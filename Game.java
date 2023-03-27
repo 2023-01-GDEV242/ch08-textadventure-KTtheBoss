@@ -13,6 +13,8 @@
  * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
+ * @Kevin Teixeira
+ * @version 2023.03.22
  */
 
 public class Game 
@@ -59,7 +61,25 @@ public class Game
 
         currentRoom = outside;  // start game outside
     }
-
+    /** 
+     * Look command for Game Class
+     */
+    private void look()
+    {
+        System.out.println(currentRoom.getLongDescription());
+    if(wordCommand.equals("help")) {
+        printHelp();
+    }
+    else if(wordCommand.equals("go")) {
+        goRoom(command);
+    }
+    else if(wordCommand.equals("look")) {
+        look();
+    }
+    else if(wordCommand.equals("quit")) {
+        declareQuit = quit(command);
+    }
+}
     /**
      *  Main play routine.  Loops until end of play.
      */
